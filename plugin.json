@@ -1,0 +1,28 @@
+{
+  "id": "autotune",
+  "name": "Auto-Tuner",
+  "version": "1.0.0",
+  "description": "Shift the song live to your guitar's tuning; note detection and the highway follow.",
+  "script": "screen.js",
+  "scriptType": "module",
+  "minHost": "0.3.0-alpha.2",
+  "category": "audio",
+  "icon": "assets/thumb.svg",
+  "settings": {
+    "html": "settings.html",
+    "category": "audio"
+  },
+  "standards": ["capability-pipelines.v1", "plugin-runtime-idempotent.v1"],
+  "capabilities": {
+    "chart-transform": {
+      "roles": ["provider"],
+      "operations": ["chart.transform"],
+      "description": "Publishes the effective tuning and cent offset of the live pitch shift so note detection and tuning-aware renderers follow it.",
+      "mode": "active",
+      "compatibility": "none",
+      "ownership": "multi-provider",
+      "safety": "safe",
+      "version": 1
+    }
+  }
+}

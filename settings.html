@@ -1,0 +1,38 @@
+<div>
+    <label class="text-sm font-medium text-gray-400 mb-2 block">Auto-Tuner</label>
+    <p class="text-xs text-gray-500 mb-3">
+        Shifts the song's pitch live (tempo unchanged) so your guitar can stay in
+        its tuning. Use the <span class="text-gray-300">TUNE</span> control in the
+        player's plugin controls. Note detection and the highway follow the shifted
+        tuning. Your song files are never changed.
+    </p>
+    <div class="flex flex-col gap-3">
+        <label class="flex items-center gap-2 text-sm text-gray-300">
+            <input type="checkbox" data-autotune="auto" class="accent-accent">
+            Auto-shift every song to my tuning family
+        </label>
+        <p class="text-xs text-gray-500 -mt-2">
+            Eb Standard songs move up to E Standard, Drop C# to Drop D, and so on.
+            A shift you set by hand for a song always wins.
+        </p>
+        <label class="flex items-center gap-2 text-sm text-gray-300">
+            My guitar is tuned to
+            <select data-autotune="home" class="bg-dark-600 border border-gray-700 rounded px-2 py-1 text-sm">
+                <option value="2">F# Standard</option>
+                <option value="1">F Standard</option>
+                <option value="0">E Standard</option>
+                <option value="-1">Eb Standard</option>
+                <option value="-2">D Standard</option>
+                <option value="-3">C# Standard</option>
+                <option value="-4">C Standard</option>
+                <option value="-5">B Standard</option>
+                <option value="-6">Bb Standard</option>
+                <option value="-7">A Standard</option>
+            </select>
+        </label>
+        <p class="text-xs text-gray-500">
+            Player shortcuts: <kbd>,</kbd> / <kbd>.</kbd> semitone down / up,
+            <kbd>&lt;</kbd> / <kbd>&gt;</kbd> 5 cents, <kbd>\</kbd> back to auto.
+        </p>
+    </div>
+</div>
