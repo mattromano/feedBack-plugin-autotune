@@ -1,0 +1,28 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Org-wide reusable CI: runs `npm test` (node --test tests/*.test.js).
+  ci:
+    uses: got-feedback/.github/.github/workflows/reusable-ci.yml@main
+
+  # Manifest + layout check against feedBack-plugin-spec.
+  validate:
+    uses: got-feedback/feedBack-plugin-spec/.github/workflows/plugin-validate.yml@main
+
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: node --check
+        run: |
+          for f in screen.js src/*.js assets/*.js tests/*.js; do
+            node --check "$f" || exit 1
+          done
