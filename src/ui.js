@@ -217,7 +217,8 @@ export function createUI({ view, actions, nameOf }) {
         const v = view();
         if (btn) {
             btn.dataset.active = v.cents ? '1' : '0';
-            btn.textContent = v.cents ? `TUNE ${formatShift(v.cents)}` : 'TUNE';
+            // "Auto-tune", not "TUNE": next to the core Tuner button the two read as the same thing.
+        btn.textContent = v.cents ? `Auto-tune ${formatShift(v.cents)}` : 'Auto-tune';
             btn.title = v.cents
                 ? `Song shifted ${formatShift(v.cents)}: playing as ${v.effective}`
                 : 'Auto-Tuner: shift the song to match your guitar’s tuning';
